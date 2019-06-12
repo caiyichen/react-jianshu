@@ -1,25 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Provider } from "react-redux";
+import store from "./store/index";
+import { BrowserRouter, Route } from "react-router-dom";
+
+import Header from "./common/header";
+import Home from "./pages/home";
+import Detail from "./pages/detail/loadable"; // 异步加载Detail组件
+import WriteArticle from "./pages/writeArticle";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Header />
+        <Route
+          path="/"
+          exact
+          render={() => {
+            return <Home />;
+          }}
+        />
+        <Route
+          path="/login"
+          exact
+          render={() => {
+            return <div>login</div>;
+          }}
+        />
+        {/* path 动态路由 */}
+        <Route path="/detail/:id" exact component={Detail} />
+        <Route path="/writeArticle" exact component={WriteArticle} />
+      </BrowserRouter>
+    </Provider>
   );
 }
 
