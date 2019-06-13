@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import "./style.css";
+import "./style.scss";
 import { actionCreator } from "./store";
 import { Link } from "react-router-dom";
 
@@ -25,22 +25,43 @@ class Header extends React.Component {
       handleInputBlur,
       searchList
     } = this.props;
+
     return (
-      <header style={{ border: "1px solid red" }}>
-        <section>
-          <input
-            placeholder="搜索"
-            className={focused ? "input-focus" : "input-blur"}
-            onFocus={() => {
-              return handleInputFocus(searchList);
-            }}
-            onBlur={handleInputBlur}
-          />
-          {this.getSearchList()}
-        </section>
-        <section>
-          <div>登录</div>
-          <Link to="/writeArticle">写文章</Link>
+      <header className="header flex">
+        <div className="logo" />
+        <section className="flex box-align-center flex-pack-between flex-grow">
+          <section className="left-content flex">
+            <Link className="link lighting-text" to="">
+              发现
+            </Link>
+            <Link className="link" to="">
+              关注
+            </Link>
+            <Link className="link" to="">
+              消息<span className="badge">4</span>
+            </Link>
+            <input
+              placeholder="搜索"
+              className={focused ? "input-focus" : "input-blur"}
+              onFocus={() => {
+                return handleInputFocus(searchList);
+              }}
+              onBlur={handleInputBlur}
+            />
+            {this.getSearchList()}
+          </section>
+
+          <section className="right-content flex">
+            <Link className="login" to="/login">
+              登录
+            </Link>
+            <Link className="register-btn" to="/register">
+              注册
+            </Link>
+            <Link className="write-article-btn" to="/writeArticle">
+              写文章
+            </Link>
+          </section>
         </section>
       </header>
     );

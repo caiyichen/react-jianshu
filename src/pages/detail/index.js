@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // 路由跳转
 import { Link, withRouter } from "react-router-dom";
+import "./style.scss";
 
 class Detail extends Component {
   render() {

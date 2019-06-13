@@ -1,0 +1,42 @@
+// sass变量的声明
+$base-fonts: "Hiragino Sans GB", "Helvetica Neue", Helvetica, "PingFang SC",
+  STHeiTi, Arial, sans-serif;
+$border-default: 1px solid #e0e0e0 !default;
+$border-radius: 6px !default;
+$backdrop-default: rgba(#000, 0.3);
+
+// `!default` 代表默认属性
+$primary-color: #ea6f5a !default;
+$primary-size: 14px !default;
+
+$default-bgColor: #f7f7f7;
+
+// Cool
+
+$aqua: #7fdbff;
+$blue: #00b0f3;
+$navy: #001f3f;
+$teal: #39cccc;
+$green: #04be02;
+$olive: #3d9970;
+$lime: #8bde14;
+
+// Warm
+
+$yellow: #f4cb26;
+$orange: #fe3709;
+$red: #ff4136;
+$fuchsia: #f012be;
+$purple: #b10dc9;
+$maroon: #85144b;
+
+// Gray Scale
+
+$white: #fff;
+$silver: #ddd;
+$gray: #ccc;
+$black: #111;
+
+$c333: #333;
+$c666: #666;
+$c999: #999;
