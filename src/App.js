@@ -15,20 +15,20 @@ function App() {
       <BrowserRouter>
         <Header />
         {/* Switch：用于渲染与路径匹配的第一个子 <Route> 或 <Redirect>。 */}
-        {/* <Switch> */}
-        {routers.map(router => {
-          return (
-            <Route
-              key={router.path}
-              exact={!!router.exact}
-              path={router.path}
-              component={router.component}
-            />
-          );
-        })}
-        {/* 404页 */}
-        <Route component={NotFound} />
-        {/* </Switch> */}
+        <Switch>
+          {routers.map(router => {
+            return (
+              <Route
+                key={router.path}
+                exact={!!router.exact}
+                path={router.path}
+                component={router.component}
+              />
+            );
+          })}
+          {/* 404页面 */}
+          <Route component={NotFound} />
+        </Switch>
       </BrowserRouter>
     </Provider>
   );
