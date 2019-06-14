@@ -9,7 +9,7 @@ class Home extends Component {
         home
         <ul>
           <li>
-            <Link to="/detail">详情页</Link>
+            <Link to="/detail">详情页【不匹配】</Link>
           </li>
           <li>
             <Link to="/detail/2">详情页2</Link>

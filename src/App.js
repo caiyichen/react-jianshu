@@ -1,35 +1,34 @@
 import React from "react";
 import { Provider } from "react-redux";
 import store from "./store/index";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Header from "./common/header";
-import Home from "./pages/home";
-import Detail from "./pages/detail/loadable"; // 异步加载Detail组件
-import WriteArticle from "./pages/writeArticle";
+
+import NotFound from "./common/notFound";
+import routers from "./router";
 
 function App() {
   return (
     <Provider store={store}>
+      {/* 路由配置 */}
       <BrowserRouter>
         <Header />
-        <Route
-          path="/"
-          exact
-          render={() => {
-            return <Home />;
-          }}
-        />
-        <Route
-          path="/login"
-          exact
-          render={() => {
-            return <div>login</div>;
-          }}
-        />
-        {/* path 动态路由 */}
-        <Route path="/detail/:id" exact component={Detail} />
-        <Route path="/writeArticle" exact component={WriteArticle} />
+        {/* Switch：用于渲染与路径匹配的第一个子 <Route> 或 <Redirect>。 */}
+        {/* <Switch> */}
+        {routers.map(router => {
+          return (
+            <Route
+              key={router.path}
+              exact={!!router.exact}
+              path={router.path}
+              component={router.component}
+            />
+          );
+        })}
+        {/* 404页 */}
+        <Route component={NotFound} />
+        {/* </Switch> */}
       </BrowserRouter>
     </Provider>
   );

@@ -4,9 +4,7 @@ import Loading from "../../common/loading";
 
 const LoadableComponent = Loadable({
   loader: () => import("./index"),
-  loading: () => {
-    return <div>正在加载...</div>;
-  } // Loading
+  loading: Loading
 });
 
 // 无状态组件

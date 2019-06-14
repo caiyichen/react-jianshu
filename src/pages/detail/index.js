@@ -5,6 +5,7 @@ import "./style.scss";
 
 class Detail extends Component {
   render() {
+    console.log(this.props);
     return (
       <div>
         {/* 获取动态路由的参数值 */}
