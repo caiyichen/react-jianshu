@@ -10,6 +10,7 @@ import routers from "./router";
 
 function App() {
   console.log(111);
+  console.log(222);
   return (
     <Provider store={store}>
       {/* 路由配置 */}
