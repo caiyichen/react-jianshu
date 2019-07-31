@@ -11,6 +11,7 @@ import routers from "./router";
 function App() {
   console.log(111);
   console.log(222);
+  console.log(333);
   return (
     <Provider store={store}>
       {/* 路由配置 */}
