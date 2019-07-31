@@ -9,6 +9,7 @@ import NotFound from "./common/notFound";
 import routers from "./router";
 
 function App() {
+  console.log(111);
   return (
     <Provider store={store}>
       {/* 路由配置 */}
