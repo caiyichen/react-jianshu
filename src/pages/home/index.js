@@ -24,3 +24,27 @@ class Home extends Component {
 }
 
 export default Home;
+
+// 防抖
+function debounce(func, delay) {
+  let timer = null;
+  return function() {
+    clearTimeout(timer);
+    timer = setTimeout(func.bind(this, arguments), delay);
+  };
+}
+
+function throttle(func, delay, threshhold = 120) {
+  let timer = null;
+  let startTime = +new Date();
+  return function() {
+    let nowTime = +new Date();
+    if (nowTime - startTime >= threshhold) {
+      func.call(this);
+      startTime = nowTime;
+    } else {
+      clearTimeout(timer);
+      timer = setTimeout(func.bind(this, arguments), delay);
+    }
+  };
+}
